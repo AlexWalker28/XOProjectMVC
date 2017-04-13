@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         init();
         controller = new XOController();
         model = new XOModel();
-        view = new XOView();
+        view = new XOView(model);
 
         onClickListener = new View.OnClickListener() {
             @Override
@@ -43,78 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         controller.update();
                         if (model.getWinner() != 0) textView.setText(view.getWinner());
                         break;
-                    case R.id.button10:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(1,0, controller.getPlayer());
-                            button10.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
-                    case R.id.button20:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(2,0, controller.getPlayer());
-                            button20.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
-                    case R.id.button01:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(0,1, controller.getPlayer());
-                            button01.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
-                    case R.id.button11:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(1,1, controller.getPlayer());
-                            button11.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
-                    case R.id.button21:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(2,1, controller.getPlayer());
-                            button21.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
-                    case R.id.button02:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(0,2, controller.getPlayer());
-                            button02.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
-                    case R.id.button12:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(1,2, controller.getPlayer());
-                            button12.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
-                    case R.id.button22:
-                        if(model.isWinner()){
-                            textView.setText(view.getWinner());
-                        } else {
-                            controller.setData(2,2, controller.getPlayer());
-                            button22.setText(view.getPlayer());
-                            controller.changePlayer();
-                        }
-                        break;
+
                 }
             }
         };
