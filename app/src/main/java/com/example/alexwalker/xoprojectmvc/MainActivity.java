@@ -29,22 +29,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
+        controller = new XOController();
+        model = new XOModel();
+        view = new XOView();
 
         onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.button00:
-                        controller.setCoordinates(0, 0);
+                        controller.setData(0, 0, controller.getPlayer());
                         button00.setText(view.getPlayer());
                         controller.update();
-                        if (model.isWinner()) textView.setText(view.getWinner());
+                        if (model.getWinner() != 0) textView.setText(view.getWinner());
                         break;
                     case R.id.button10:
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(1,0);
+                            controller.setData(1,0, controller.getPlayer());
                             button10.setText(view.getPlayer());
                             controller.changePlayer();
                         }
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(2,0);
+                            controller.setData(2,0, controller.getPlayer());
                             button20.setText(view.getPlayer());
                             controller.changePlayer();
                         }
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(0,1);
+                            controller.setData(0,1, controller.getPlayer());
                             button01.setText(view.getPlayer());
                             controller.changePlayer();
                         }
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(1,1);
+                            controller.setData(1,1, controller.getPlayer());
                             button11.setText(view.getPlayer());
                             controller.changePlayer();
                         }
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(2,1);
+                            controller.setData(2,1, controller.getPlayer());
                             button21.setText(view.getPlayer());
                             controller.changePlayer();
                         }
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(0,2);
+                            controller.setData(0,2, controller.getPlayer());
                             button02.setText(view.getPlayer());
                             controller.changePlayer();
                         }
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(1,2);
+                            controller.setData(1,2, controller.getPlayer());
                             button12.setText(view.getPlayer());
                             controller.changePlayer();
                         }
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                         if(model.isWinner()){
                             textView.setText(view.getWinner());
                         } else {
-                            controller.setCoordinates(2,2);
+                            controller.setData(2,2, controller.getPlayer());
                             button22.setText(view.getPlayer());
                             controller.changePlayer();
                         }

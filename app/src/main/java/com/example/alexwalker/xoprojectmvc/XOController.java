@@ -23,19 +23,20 @@ class XOController {
     }
 
     public void setPlayer(int player) {
-        model.setPlayer() = player;
+        model.setPlayer(player);
     }
 
     public void update() {
         if(getCoordinates(0,0) == 1 && getCoordinates(1,0) == 1 && getCoordinates(2,0) == 1){
             model.setWinner(1);
         }
+        changePlayer();
     }
 
     private int getCoordinates(int x, int y) {
         return model.getCoordinates(x,y);
     }
-    public void setCoordinates(int x, int y) {
-        model.setCoordinates(x,y);
+    public void setData(int x, int y, int player) {
+        model.setData(x, y, player);
     }
 }
