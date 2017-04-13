@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-        controller = new XOController();
         model = new XOModel();
+        controller = new XOController(model);
         view = new XOView(model);
 
         onClickListener = new View.OnClickListener() {
@@ -43,7 +43,18 @@ public class MainActivity extends AppCompatActivity {
                         controller.update();
                         if (model.getWinner() != 0) textView.setText(view.getWinner());
                         break;
-
+                    case R.id.button10:
+                        controller.setData(1, 0, controller.getPlayer());
+                        button10.setText(view.getPlayer());
+                        controller.update();
+                        if (model.getWinner() != 0) textView.setText(view.getWinner());
+                        break;
+                    case R.id.button20:
+                        controller.setData(2, 0, controller.getPlayer());
+                        button20.setText(view.getPlayer());
+                        controller.update();
+                        if (model.getWinner() != 0) textView.setText(view.getWinner());
+                        break;
                 }
             }
         };

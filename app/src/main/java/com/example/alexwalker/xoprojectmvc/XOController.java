@@ -9,7 +9,9 @@ class XOController {
 
     private XOModel model;
 
-    public XOController() {
+
+    public XOController(XOModel model) {
+        this.model = model;
     }
 
     public void changePlayer() {

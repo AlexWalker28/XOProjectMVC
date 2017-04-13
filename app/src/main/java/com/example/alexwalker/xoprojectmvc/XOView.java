@@ -13,9 +13,13 @@ class XOView {
     }
 
     public String getPlayer() {
+        String player = "";
         if(model.getPlayer() == 1){
-            return "x";
-        } else  return "o";
+            player = "x";
+        } else  if(model.getPlayer() == 2){
+            player = "o";
+        }
+        return player;
     }
 
     public String getWinner() {
