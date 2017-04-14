@@ -1,5 +1,6 @@
 package com.example.alexwalker.xoprojectmvc;
 
+
 /**
  * Created by alexwalker on 13.04.17.
  */
@@ -31,6 +32,8 @@ class XOController {
     public void update() {
         if(getCoordinates(0,0) == 1 && getCoordinates(1,0) == 1 && getCoordinates(2,0) == 1){
             model.setWinner(1);
+        } else if (getCoordinates(0,0) == 2 && getCoordinates(1,0) == 2 && getCoordinates(2,0) == 2){
+            model.setWinner(2);
         }
         changePlayer();
     }

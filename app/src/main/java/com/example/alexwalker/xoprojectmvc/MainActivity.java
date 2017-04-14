@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     XOView view;
     XOModel model;
     View.OnClickListener onClickListener;
+    Button restartButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,31 +30,104 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-        model = new XOModel();
-        controller = new XOController(model);
-        view = new XOView(model);
 
         onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
+                    case R.id.restartButton:
+                        init();
+                        resetField();
+                        break;
                     case R.id.button00:
-                        controller.setData(0, 0, controller.getPlayer());
-                        button00.setText(view.getPlayer());
-                        controller.update();
-                        if (model.getWinner() != 0) textView.setText(view.getWinner());
+                        if (model.getWinner() == 0) {
+                            controller.setData(0, 0, controller.getPlayer());
+                            button00.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
                         break;
                     case R.id.button10:
-                        controller.setData(1, 0, controller.getPlayer());
-                        button10.setText(view.getPlayer());
-                        controller.update();
-                        if (model.getWinner() != 0) textView.setText(view.getWinner());
+                        if (model.getWinner() == 0) {
+                            controller.setData(1, 0, controller.getPlayer());
+                            button10.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
                         break;
                     case R.id.button20:
-                        controller.setData(2, 0, controller.getPlayer());
-                        button20.setText(view.getPlayer());
-                        controller.update();
-                        if (model.getWinner() != 0) textView.setText(view.getWinner());
+                        if (model.getWinner() == 0) {
+                            controller.setData(2, 0, controller.getPlayer());
+                            button20.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
+                        break;
+                    case R.id.button01:
+                        if (model.getWinner() == 0) {
+                            controller.setData(0, 1, controller.getPlayer());
+                            button01.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
+                        break;
+                    case R.id.button11:
+                        if (model.getWinner() == 0) {
+                            controller.setData(1, 1, controller.getPlayer());
+                            button11.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
+                        break;
+                    case R.id.button21:
+                        if (model.getWinner() == 0) {
+                            controller.setData(2, 1, controller.getPlayer());
+                            button21.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
+                        break;
+                    case R.id.button02:
+                        if (model.getWinner() == 0) {
+                            controller.setData(0, 2, controller.getPlayer());
+                            button02.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
+                        break;
+                    case R.id.button12:
+                        if (model.getWinner() == 0) {
+                            controller.setData(1, 2, controller.getPlayer());
+                            button12.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
+                        break;
+                    case R.id.button22:
+                        if (model.getWinner() == 0) {
+                            controller.setData(2, 2, controller.getPlayer());
+                            button22.setText(view.getPlayer());
+                            controller.update();
+                            if(model.getWinner() != 0){
+                                textView.setText(view.getWinner());
+                            }
+                        }
                         break;
                 }
             }
@@ -61,6 +135,20 @@ public class MainActivity extends AppCompatActivity {
 
         setOnClickListeners();
 
+
+    }
+
+    private void resetField() {
+        button00.setText("");
+        button10.setText("");
+        button20.setText("");
+        button01.setText("");
+        button11.setText("");
+        button21.setText("");
+        button02.setText("");
+        button12.setText("");
+        button22.setText("");
+        textView.setText("");
 
     }
 
@@ -74,9 +162,13 @@ public class MainActivity extends AppCompatActivity {
         button02.setOnClickListener(onClickListener);
         button12.setOnClickListener(onClickListener);
         button22.setOnClickListener(onClickListener);
+        restartButton.setOnClickListener(onClickListener);
     }
 
     private void init() {
+        model = new XOModel();
+        controller = new XOController(model);
+        view = new XOView(model);
         button00 = (Button)findViewById(R.id.button00);
         button10 = (Button)findViewById(R.id.button10);
         button20 = (Button)findViewById(R.id.button20);
@@ -87,5 +179,6 @@ public class MainActivity extends AppCompatActivity {
         button12 = (Button)findViewById(R.id.button12);
         button22 = (Button)findViewById(R.id.button22);
         textView = (TextView)findViewById(R.id.textView);
+        restartButton = (Button)findViewById(R.id.restartButton);
     }
 }

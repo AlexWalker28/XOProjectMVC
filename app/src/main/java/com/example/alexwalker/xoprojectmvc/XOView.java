@@ -23,8 +23,12 @@ class XOView {
     }
 
     public String getWinner() {
+        String winner = "";
         if(model.getWinner() == 1){
-            return "The winner is X";
-        } else return "The winner is O";
+            winner = "The winner is X";
+        } else if(model.getWinner() == 2){
+            winner = "The winner is O";
+        }
+        return winner;
     }
 }
